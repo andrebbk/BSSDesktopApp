@@ -1,0 +1,2 @@
+# BSSDesktopApp
+Angular Electron App
