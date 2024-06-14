@@ -28,6 +28,7 @@
     "@angular/cli": "^18.0.3",
     "@angular/compiler-cli": "^18.0.0",
     "@types/jasmine": "~5.1.0",
+    "bootstrap": "^5.3.3",
     "electron": "^31.0.1",
     "jasmine-core": "~5.1.0",
     "karma": "~6.4.0",
