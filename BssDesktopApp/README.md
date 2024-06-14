@@ -46,7 +46,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 8. Validate assets path inside angular.json
 
-9. Run npm install knex --save-dev
+9. Run npm install knex sqlite3 --save-dev
 
 10. Create a .db file within the public folder
 

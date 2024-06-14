@@ -4,6 +4,14 @@ const path = require("path");
 
 let mainWindow;
 
+var knex = require("knex")({
+    client: "sqlite3",
+    connection: {
+        filename: "./public/bss.db"
+    },
+    useNullAsDefault: true
+});
+
 async function createWindow () {   
 
     process.env['ELECTRON_DISABLE_SECURITY_WARNINGS']=true;
