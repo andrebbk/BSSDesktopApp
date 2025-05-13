@@ -66,31 +66,31 @@ async function createWindows () {
         slashes:true
     }))
 
-    // Open the DevTools.
-    mainWindow.webContents.openDevTools()
+    // open the DevTools
+    mainWindow.webContents.openDevTools();
 
     mainWindow.on('closed', function () {
         mainWindow = null;
-    })
-
-    ipcMain.on('request-mainprocess-action', (event, arg) => {
-        mainWindow.maximize();
-    });
+    });    
 }
 
-app.on('ready', createWindows)
+app.on('ready', createWindows);
 
 app.on('window-all-closed', function () {
-    if (process.platform !== 'darwin') app.quit()
+    if (process.platform !== 'darwin') app.quit();
 })
 
 app.on('activate', function () {
-    if (mainWindow === null) createWindows()
+    if (mainWindow === null) createWindows();
 })
 
-//IPC Main Handlers
+// initialize IPC main handlers
 initIPCHandlers();
 
 ipcMain.on('openModal', (event, arg) => {
     console.log(arg);     
+});
+
+ipcMain.on('request-mainprocess-action', (event, arg) => {
+        mainWindow.maximize();
 });
