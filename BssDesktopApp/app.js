@@ -1,16 +1,9 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const url = require("url");
 const path = require("path");
+const { initIPCHandlers } = require('./ipcHandlers.js');
 
 let mainWindow, startUpWindow;
-
-var knex = require("knex")({
-    client: "sqlite3",
-    connection: {
-        filename: "./public/bss.db"
-    },
-    useNullAsDefault: true
-});
 
 async function createWindows () {   
     process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = true;
@@ -95,13 +88,8 @@ app.on('activate', function () {
     if (mainWindow === null) createWindows()
 })
 
-ipcMain.on('getTests', (event, arg) => {
-    let result = knex.select('*').from('Test');
-
-    result.then(function (rows){
-        event.sender.send('result_SendTests', rows);
-    });       
-});
+//IPC Main Handlers
+initIPCHandlers();
 
 ipcMain.on('openModal', (event, arg) => {
     console.log(arg);     

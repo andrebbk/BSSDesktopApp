@@ -9,9 +9,8 @@ import { WindowRefServiceService } from './services/window-ref-service.service';
 })
 export class AppComponent implements OnInit{
   title = 'BssDesktopApp';
-
   tests: Array<any> = [];
-
+  
   private _window:any;
 
   constructor(zone: NgZone, windowRef: WindowRefServiceService){
