@@ -13,7 +13,7 @@ var knex = require("knex")({
 });
 
 async function createWindows () {   
-    process.env['ELECTRON_DISABLE_SECURITY_WARNINGS']=true;
+    process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = true;
     
     mainWindow = new BrowserWindow({
         show: false,
@@ -34,7 +34,8 @@ async function createWindows () {
             worldSafeExecuteJavaScript: true,
             preload: path.join(__dirname, 'preload.js')
         },
-        backgroundColor: '#FFDF00'
+        backgroundColor: '#FFDF00',
+        icon: __dirname +  "/src/assets/icons/bss_app_icon.ico"
     });
 
     startUpWindow = new BrowserWindow({
@@ -55,14 +56,15 @@ async function createWindows () {
             contextIsolation: false,
             enableRemoteModule: true
         },
+        icon: __dirname +  "/src/assets/icons/bss_app_icon.ico"
     })
 
     mainWindow.loadURL(
-    url.format({
-        pathname: path.join(__dirname, `/dist/bss-desktop-app/browser/index.html`),
-        protocol: "file:",
-        slashes: true
-    })
+        url.format({
+            pathname: path.join(__dirname, `/dist/bss-desktop-app/browser/index.html`),
+            protocol: "file:",
+            slashes: true
+        })
     );
 
     startUpWindow.loadURL(url.format({
@@ -72,7 +74,7 @@ async function createWindows () {
     }))
 
     // Open the DevTools.
-    //mainWindow.webContents.openDevTools()
+    mainWindow.webContents.openDevTools()
 
     mainWindow.on('closed', function () {
         mainWindow = null;
@@ -100,8 +102,6 @@ ipcMain.on('getTests', (event, arg) => {
         event.sender.send('result_SendTests', rows);
     });       
 });
-
-
 
 ipcMain.on('openModal', (event, arg) => {
     console.log(arg);     
