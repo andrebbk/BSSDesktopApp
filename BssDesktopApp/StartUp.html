@@ -16,11 +16,11 @@
     <div class="overflow-hidden">
         <div class="h-100 d-flex flex-column align-items-center justify-content-center">
             <div class="d-flex flex-column align-items-center p-1">                
-                <img src="./src/assets/imagens/bss_transparent.png" width="90" height="90">
+                <img src="./src/assets/images/bss_transparent.png" width="90" height="90">
                 <h2 class="fs-2">Barrinha Surf School</h2>
             </div>  
             <div class="pt-1 p-1">
-                <img src="./src/assets/AnimationLoading.gif" width="70" height="70"/>
+                <img src="./src/assets/gifs/AnimationLoading.gif" width="70" height="70"/>
             </div>  
             <div class="p-1">
                 <p class="fw-normal">A carregar...</p>
@@ -36,7 +36,7 @@
         setTimeout(function(){ 
             ipcRenderer.send('request-mainprocess-action');       
             window.close(); 
-        }, 1000);             
+        }, 5000);             
     };
 </script>
 </html>

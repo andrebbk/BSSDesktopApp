@@ -3,7 +3,7 @@ const { ipcMain } = require('electron');
 var knex = require("knex")({
     client: "sqlite3",
     connection: {
-        filename: "./public/bss.db"
+        filename: "./data/bss.db"
     },
     useNullAsDefault: true
 });

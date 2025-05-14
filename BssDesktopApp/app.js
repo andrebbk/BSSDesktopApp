@@ -14,8 +14,8 @@ async function createWindows () {
         center: true,
         movable: false,
         resizable: false,
-        maximizable: false,
-        minimizable: true,
+        maximizable: true, //TODO: change to false
+        minimizable: false, //TODO: change to true
         titleBarStyle: 'hidden',
         webPreferences: {         
             webSecurity: true,
@@ -31,7 +31,16 @@ async function createWindows () {
         icon: __dirname +  "/src/assets/icons/bss_app_icon.ico"
     });
 
-    startUpWindow = new BrowserWindow({
+    mainWindow.loadURL(
+        url.format({
+            pathname: path.join(__dirname, `/dist/bss-desktop-app/browser/index.html`),
+            protocol: "file:",
+            slashes: true
+        })
+    );
+
+    //TODO: remove this comments
+    /*startUpWindow = new BrowserWindow({
         parent: mainWindow,
         width: 500,
         height: 300,
@@ -50,21 +59,17 @@ async function createWindows () {
             enableRemoteModule: true
         },
         icon: __dirname +  "/src/assets/icons/bss_app_icon.ico"
-    })
-
-    mainWindow.loadURL(
-        url.format({
-            pathname: path.join(__dirname, `/dist/bss-desktop-app/browser/index.html`),
-            protocol: "file:",
-            slashes: true
-        })
-    );
-
+    });
+    
     startUpWindow.loadURL(url.format({
         pathname:path.join(__dirname, 'StartUp.html'),
         protocol:'file',
         slashes:true
-    }))
+    }));*/
+
+    //TODO: remove this lines
+    mainWindow.maximize();
+    mainWindow.show();
 
     // open the DevTools
     mainWindow.webContents.openDevTools();
@@ -92,5 +97,5 @@ ipcMain.on('openModal', (event, arg) => {
 });
 
 ipcMain.on('request-mainprocess-action', (event, arg) => {
-        mainWindow.maximize();
+    mainWindow.maximize();
 });
