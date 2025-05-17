@@ -6,11 +6,17 @@ import { AppComponent } from './app.component';
 
 import { WindowRefServiceService } from './services/window-ref-service.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { LeftSidebarComponent } from './components/left-sidebar/left-sidebar.component';
+import { MainComponent } from './components/main/main.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    LeftSidebarComponent,
+    MainComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
