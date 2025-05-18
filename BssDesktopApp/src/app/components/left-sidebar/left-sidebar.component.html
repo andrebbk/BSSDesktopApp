@@ -1,6 +1,7 @@
 <div
   class="sidenav"
   [ngClass]="isLeftSidebarCollapsed() ? 'sidenav-collapsed' : ''"
+  (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()"
 >
   <div class="logo-container">
     <button class="logo" (click)="toggleCollapse()">

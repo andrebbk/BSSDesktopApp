@@ -9,6 +9,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { LeftSidebarComponent } from './components/left-sidebar/left-sidebar.component';
 import { MainComponent } from './components/main/main.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { StudentsComponent } from './components/students/students.component';
+import { ClassesComponent } from './components/classes/classes.component';
+import { BssSettingsComponent } from './components/bss-settings/bss-settings.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     NavbarComponent,
     LeftSidebarComponent,
     MainComponent,
-    DashboardComponent
+    DashboardComponent,
+    StudentsComponent,
+    ClassesComponent,
+    BssSettingsComponent
   ],
   imports: [
     BrowserModule,
