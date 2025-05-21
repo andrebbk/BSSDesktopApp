@@ -13,6 +13,9 @@ import { StudentsComponent } from './components/students/students.component';
 import { ClassesComponent } from './components/classes/classes.component';
 import { BssSettingsComponent } from './components/bss-settings/bss-settings.component';
 import { GlobalErrorHandlerService } from './services/global-error-handler.service';
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -26,8 +29,15 @@ import { GlobalErrorHandlerService } from './services/global-error-handler.servi
     BssSettingsComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+    }),
   ],
   providers: [
     { 

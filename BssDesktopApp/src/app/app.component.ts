@@ -1,5 +1,6 @@
 import { Component, HostListener, NgZone, OnInit, signal } from '@angular/core';
 import { WindowRefServiceService } from './services/window-ref-service.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
     selector: 'app-root',
