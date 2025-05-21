@@ -1,11 +1,17 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const url = require("url");
 const path = require("path");
-const { initIPCHandlers } = require('./ipcHandlers.js');
+const { initIPCHandlers } = require('./handlers/ipcHandlers.js');
+const { initBssLogging, logInfo } = require('./handlers/loggerHandler.js');
 
 let mainWindow, startUpWindow;
 
-async function createWindows () {   
+async function createWindows () {  
+    // initialize the logger for any renderer process
+    initBssLogging();
+
+    logInfo('Log from the main process');
+    
     process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = true;
     
     mainWindow = new BrowserWindow({

@@ -18,12 +18,13 @@ export class AppComponent implements OnInit{
   constructor(zone: NgZone, windowRef: WindowRefServiceService){
       this._window = windowRef.nativeWindow;    
       
+      this._window?.bssLogger?.logInfo("AppComponent initialized");
+
       this._window?.api?.receive("result_SendTests", (args: any[]) => {
         zone.run(() => {
           this.tests = args;
           console.log(args);
-        });
-        
+        });        
       });
   }    
   
@@ -32,9 +33,7 @@ export class AppComponent implements OnInit{
     this._window?.api?.send("getTests");   
     
     this.isLeftSidebarCollapsed.set(this.screenWidth() < 768);
-  }
-
-  
+  } 
 
   @HostListener('window:resize')
   onResize() {
