@@ -10,8 +10,7 @@ export const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'students', component: StudentsComponent},  
   { path: 'classes', component: ClassesComponent },
-  { path: 'settings', component: BssSettingsComponent },
-  
+  { path: 'settings', component: BssSettingsComponent }  
 ];
 
 @NgModule({
