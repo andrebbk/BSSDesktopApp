@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,6 +12,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { StudentsComponent } from './components/students/students.component';
 import { ClassesComponent } from './components/classes/classes.component';
 import { BssSettingsComponent } from './components/bss-settings/bss-settings.component';
+import { GlobalErrorHandlerService } from './services/global-error-handler.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,13 @@ import { BssSettingsComponent } from './components/bss-settings/bss-settings.com
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [WindowRefServiceService],
+  providers: [
+    { 
+      provide: ErrorHandler,
+      useClass: GlobalErrorHandlerService 
+    }, 
+    WindowRefServiceService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -19,6 +19,9 @@ contextBridge.exposeInMainWorld(
     "bssLogger", {
         logInfo: (valueToLog) => {
             log.info(valueToLog);
-        }
+        },
+        logError: (valueToLog) => {
+            log.error(valueToLog);
+        },
     }
 );
